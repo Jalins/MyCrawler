@@ -19,6 +19,8 @@ func Fetch(url string) ([]byte, error) {
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("wrong status code: %d", resp.StatusCode)
 	}
-	return ioutil.ReadAll(resp.Body)
+	readall, err := ioutil.ReadAll(resp.Body)
+
+	return readall, nil
 
 }
